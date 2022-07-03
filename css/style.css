@@ -7,18 +7,18 @@ body {
   font-family: Helvetica, Arial, sans-serif;
   color: #faeded;
 
-  background-color: #261e6d;
+  background-color: rgb(35, 35, 35);
   background-image:
     repeating-linear-gradient(
       150deg,
-      rgba(255, 255, 255, 0.06),
-      rgba(255, 255, 255, 0.06) 1px,
+      rgba(255, 255, 255, 0.347),
+      rgb(255, 255, 255, 0.347) 1px,
       transparent 0,
       transparent 41px),
     repeating-linear-gradient(
       -150deg,
-      rgba(255, 255, 255, 0.06),
-      rgba(255, 255, 255, 0.06) 1px,
+      rgb(255, 255, 255, 0.347),
+      rgb(255, 255, 255, 0.347) 1px,
       transparent 0,
       transparent 41px);
 
@@ -47,6 +47,6 @@ p {
   color: red;
 }
 img {
-  width:50%;
+  width:30%;
   height:25%;
 }
