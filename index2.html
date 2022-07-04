@@ -1,17 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Обычный сайт</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
 <style>
     .inner {
         display: flex;
         align-items: center;
         justify-content: center;
         flex-wrap: wrap;
-        max-width: 600px;
+        max-width: 2000px;
         padding: 15px;
     }
     .square {
-        background-color: #2d2d2d;
-        box-shadow: 0 0 2px #000;
-        height: 16px;
-        width: 16px;
+        background-color: #e4dddd;
+        box-shadow: 0 0 2px rgb(108, 108, 108);
+        height: 20px;
+        width: 20px;
         margin: 2px;
         transition: 62222220s ease;
     }
@@ -22,19 +30,25 @@
     <script>
         const inner = document.querySelector('.inner');
         const squareColors = ['#ed220d', '#b542e5', '#0d93ed', '#f2770b', '#8affbc', '#f2ff8a', '#ff38c2', '#e37f35'];
-        const BLOCKS = 672 - 12 ;
+        const BLOCKS = 1820 - 20;
     
         for (let i = 0; i < BLOCKS; i++) {
           const square = document.createElement('div');
           square.classList.add('square');
           square.addEventListener('mouseover', () => setColor(square));
           square.addEventListener('mouseout', () => removeColor(square));
+          square.addEventListener('click', ()=> delCol(square))
           inner.appendChild(square)
         }
         function setColor(elem) {
           const color = getRandomColor();
           elem.style.background = color;
           elem.style.boxShadow = `0 0 12px ${color}`;
+        }
+        function delCol(elem) {
+          const colorr = '#e4dddd';
+          elem.style.background = colorr;
+          elem.style.boxShadow = `0 0 0px ${colorr}`;
         }
         function removeColor(elem) {
           elem.style.background = '#2d2d2d';
@@ -43,3 +57,5 @@
     
       const getRandomColor = () => squareColors[Math.floor(Math.random() * squareColors.length)];
     </script>
+  </body>
+  </html>
