@@ -36,8 +36,8 @@
         for (let i = 0; i < BLOCKS; i++) {
           const square = document.createElement('div');
           square.classList.add('square');
-          square.addEventListener('mouseover', () => setColor(square));
-          square.addEventListener('mouseout', () => removeColor(square));
+          square.addEventListener('mousedown', () => setColor(square));
+          square.addEventListener('mouseup', () => removeColor(square));
           square.addEventListener('click', ()=> delCol(square))
           inner.appendChild(square)
         }
