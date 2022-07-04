@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <a href="index.html">Обратно к карточке</a>
+    <p id = "help">Веселая игра</p>
 <style>
     .inner {
         display: flex;
@@ -30,7 +30,7 @@
     <script>
         const inner = document.querySelector('.inner');
         const squareColors = ['#ed220d', '#b542e5', '#0d93ed', '#f2770b', '#8affbc', '#f2ff8a', '#ff38c2', '#e37f35'];
-        const BLOCKS = 1820 - 20;
+        const BLOCKS = 1560;
     
         for (let i = 0; i < BLOCKS; i++) {
           const square = document.createElement('div');
@@ -57,5 +57,7 @@
     
       const getRandomColor = () => squareColors[Math.floor(Math.random() * squareColors.length)];
     </script>
+
+<a id = "stop" href="index.html">Обратно к котику</a>
   </body>
   </html>

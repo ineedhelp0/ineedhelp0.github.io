@@ -50,3 +50,15 @@ img {
   width:30%;
   height:25%;
 }
+#help{
+  text-align: center;
+  color: greenyellow;
+  font-size: 150%;
+}
+#stop{
+  font-size: 100%;
+  color :aquamarine;
+  text-align: start;
+  padding: -10% 0% 0% 0%;
+
+}
