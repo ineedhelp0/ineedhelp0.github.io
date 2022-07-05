@@ -1,66 +1,45 @@
-<!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <meta charset="utf-8">
-    <title>Сайт без скама</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="kot.jpg" type="image">
-  </head>
-  <body>
-    <p id = "help">Веселая игра</p>
-<style>
-    .inner {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-        max-width: 2000px;
-        padding: 15px;
-    }
-    .square {
-        background-color: #e4dddd;
-        box-shadow: 0 0 2px rgb(108, 108, 108);
-        height: 20px;
-        width: 20px;
-        margin: 2px;
-        transition: 62222220s ease;
-    }
-    .square:hover { transition-duration: 0s;}
-    </style>
-    <div class="inner"></div>
-    <script>
-        const inner = document.querySelector('.inner');
-        const squareColors = ['#ed220d', '#b542e5', '#0d93ed', '#f2770b', '#8affbc', '#f2ff8a', '#ff38c2', '#e37f35'];
-        const BLOCKS = 1470 - 6;
-    
-        for (let i = 0; i < BLOCKS; i++) {
-          const square = document.createElement('div');
-          square.classList.add('square');
-          square.addEventListener('mouseover', () => setColor(square));
-          square.addEventListener('mouseout', () => removeColor(square));
-          square.addEventListener('click', () => setColor(square));
-         // square.addEventListener('mouseup', () => removeColor(square));
-        //  square.addEventListener('click', ()=> delCol(square))
-          inner.appendChild(square)
-        }
-        function setColor(elem) {
-          const color = getRandomColor();
-          elem.style.background = color;
-          elem.style.boxShadow = `0 0 12px ${color}`;
-        }
-        function delCol(elem) {
-          const colorr = '#e4dddd';
-          elem.style.background = colorr;
-          elem.style.boxShadow = `0 0 0px ${colorr}`;
-        }
-        function removeColor(elem) {
-          elem.style.background = '#2d2d2d';
-          elem.style.boxShadow = '0 0 4px #000';
-        }
-    
-      const getRandomColor = () => squareColors[Math.floor(Math.random() * squareColors.length)];
-    </script>
-
-<a id = "stop" href="index.html">Обратно к котику</a>
-  </body>
-  </html>
+<?php
+echo <<<_END
+	<html>
+	<head>
+	<title>УЛУЧШЕНИЕ ухух</title>
+	</head>
+	<body>
+	<form method = 'post' action = 'test2.php' enctype = 'multipart/form-data'>
+	Выбирите файл с разрешением (png,gif,jpg,jpeg): <input type = 'file' name = 'filename' size = '10' >
+	<input   type = 'submit' value = 'Загрузить' >
+	<input  type = 'reset' value = 'Удалить'>
+	</form>
+_END;
+if ($_FILES) {
+	$name = $_FILES['filename']['name'];
+	$name = preg_replace("[^A-Za-Z0-9.]","",$name);
+	switch ($_FILES['filename']['type']) {
+		case 'image/png':
+			$e = 'png';
+			break;
+		case 'image/gif':
+			$e = 'gif';
+			break;
+		case 'image/jpg':
+			$e = 'jpg';
+			break;
+		case 'image/jpeg':
+			$e = 'jpeg';
+			break;
+		default:
+			$e = '';
+			break;
+	}
+	if ($e) {
+		$n = "image.$e";
+		move_uploaded_file($_FILES['filename']['tmp_name'], $n);
+		echo "Загружен файл '$name' с расширением '$e'<br>";
+		echo "<img src = '$n'>";
+	} else {
+		echo "недопустимый файл $name";
+	}
+} else {
+	echo "Загрузки заображения не произошло";
+}
+echo "</body></html>";
